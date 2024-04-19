@@ -4,13 +4,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-4 col-lg-4 wrapper">
-      <form class="example-form">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Full Name</mat-label>
           <input formControlName="fullName" type="text" matInput
                  placeholder="Ex. saman Silva">
         </mat-form-field>
-      </form>
 
     </div>
     <div class="col-12 col-md-4 col-lg-4 wrapper">
@@ -28,7 +26,7 @@
       </mat-form-field>
     </div>
     <div class="col-12 col-md-4 col-lg-4 wrapper">
-      <input formControlName="avatar" type="file">
+      <input (change)="onChangeFile($event)" formControlName="avatar" type="file">
     </div>
     <div class="col-12 wrapper">
       <div style="display: flex; align-items: center; justify-content: flex-end; margin-top: 20px">
