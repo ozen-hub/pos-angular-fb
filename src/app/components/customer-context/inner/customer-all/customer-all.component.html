@@ -22,22 +22,22 @@
           </td>
           <td>
             <div class="context">
-              {{tempCustomer?.fullName}}
+              {{tempCustomer?.data.fullName}}
             </div>
           </td>
           <td>
             <div class="context">
-              {{tempCustomer?.address}}
+              {{tempCustomer?.data.address}}
             </div>
           </td>
           <td>
             <div class="context">
-              {{tempCustomer?.salary | currency:'LKR'}}
+              {{tempCustomer?.data.salary | currency:'LKR'}}
             </div>
           </td>
           <td>
             <div class="context">
-              <img [src]="tempCustomer?.avatar" alt="{{tempCustomer?.fullName}}">
+              <img [src]="tempCustomer?.data.avatar" alt="{{tempCustomer?.fullName}}">
             </div>
           </td>
           <td>

@@ -29,7 +29,7 @@ export class CustomerAllComponent implements OnInit{
   ngOnInit(): void {
     this.db.collection('customers').get().subscribe(querySnapshot=>{
       querySnapshot.forEach(doc=>{
-        this.customers.push(doc.data());
+        this.customers.push({id:doc.id, data:doc.data()});
       })
     });
   }
