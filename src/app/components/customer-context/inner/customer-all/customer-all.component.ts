@@ -4,6 +4,7 @@ import {CurrencyPipe, JsonPipe, NgForOf} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
+import {AngularFireStorage} from "@angular/fire/compat/storage";
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CustomerAllComponent implements OnInit{
 
   customers:any[]=[];
 
-  constructor(private db:AngularFirestore) {
+  constructor(private db:AngularFirestore, private storage:AngularFireStorage) {
   }
   ngOnInit(): void {
     this.db.collection('customers').get().subscribe(querySnapshot=>{
@@ -33,4 +34,13 @@ export class CustomerAllComponent implements OnInit{
       })
     });
   }
+
+
+  deleteCustomer(id:any, avatar:any){
+    if(confirm('are your sure?')){
+      this.db.collection('customers').doc(id).delete();
+      this.storage.storage.refFromURL(avatar).delete();
+    }
+  }
+
 }
